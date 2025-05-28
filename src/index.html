@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Board</title>
+    <link href="/src/output.css" rel="stylesheet">
+    <style>
+        .brown {
+            background-color: #7f310a;
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .white {
+            background-color: rgb(240, 230, 197);
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .board tr td:first-child::before {
+            content: attr(data-y);
+            position: absolute;
+            background-color: #6b3a21;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 23px;
+            padding: 54px 0;
+            left: -22px;
+            bottom: -26px;
+        }
+
+        .board tr td:last-child::after {
+            content: attr(data-y);
+            position: absolute;
+            background-color: #6b3a21;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 23px;
+            padding: 54px 0;
+            right: -22px;
+            top: -26px;
+        }
+    </style>
+</head>
+
+<body class="w-full h-screen text-white flex items-center">
+
+    <table id="chessBoard" class="bg-[#6b3a21] w-[640px] h-[640px] m-auto mt-10 relative">
+    </table>
+
+    <div class="bg-gray-300 w-1/3 h-1/2 m-5 p-5 rounded-md">
+        <p class="m-auto text-black text-3xl font-bold py-5 flex justify-center">Taşlar</p>
+        <img id="horse" src="/img/horse-chess.svg" class="w-[50px] cursor-pointer absolute z-50" draggable="true"
+            ondragstart="dragStart(event)" />
+    </div>
+    <!-- <td id="A6" ondrop="drop(event)" ondragover="dragOver(event)" class="white" data-x="1" data-y="6"></td> -->
+    <script src="index.js"></script>
+</body>
+
+</html>
